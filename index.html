@@ -39,15 +39,19 @@ body {
   line-height: 1.6;
 }
 .app {
+  display: flex;
   min-height: 100vh;
 }
 .sidebar {
   background: var(--bg-panel);
   border-right: 1px solid var(--border-subtle);
   padding: 24px 16px;
-  position: fixed;
-  top: 0; left: 0; bottom: 0;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100vh;
   width: 260px;
+  flex-shrink: 0;
   overflow-y: auto;
   z-index: 100;
 }
@@ -92,7 +96,6 @@ body {
 }
 .toc-entry:hover { color: var(--text-secondary); }
 .main {
-  margin-left: 260px;
   padding: 48px 48px 80px;
   max-width: 800px;
 }
@@ -213,9 +216,8 @@ body {
 }
 .nav-bottom a:hover { background: rgba(255,255,255,0.04); border-color: var(--accent-violet); }
 @media (max-width: 900px) {
-  .app { grid-template-columns: 1fr; }
   .sidebar { display: none; }
-  .main { margin-left: 0; padding: 24px; }
+  .main { padding: 24px; max-width: 100%; }
   .entry-sections { grid-template-columns: 1fr; }
   .cover h1 { font-size: 32px; }
 }
